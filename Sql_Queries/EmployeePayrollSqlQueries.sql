@@ -55,3 +55,11 @@ alter table employee_payroll add PhoneNo varchar(150) after EmpName;	           
 alter table employee_payroll add Address varchar(255) default 'N/A' after PhoneNo;		# adding address field
 alter table employee_payroll add Department varchar(255) not null after Address;		# adding department field
 describe employee_payroll;
+
+# UC9
+alter table employee_payroll rename column Salary to BasicPay;					# renaming salary field
+alter table employee_payroll add Deductions double not null after BasicPay;			# adding deductions field
+alter table employee_payroll add TaxablePay double not null after Deductions;			# adding taxable pay field
+alter table employee_payroll add Tax double not null after TaxablePay;				# adding tax field
+alter table employee_payroll add NetPay double not null after Tax; 				# adding net pay field
+describe employee_payroll;
