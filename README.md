@@ -17,4 +17,14 @@
 
 6)  UC6 - Adding new data field into table & updating values of all employee of that field
 
-7)  UC7 - Performing sum, avg, min, max, count operation on salary data field of employee according to gender          
+7)  UC7 - Performing sum, avg, min, max, count operation on salary data field of employee according to gender
+
+8)  UC8 - Adding new data field into table
+
+9)  UC9 - Adding new data field into table
+
+10)  UC10 - Adding multiple entries for department field for single employee
+
+11)  UC11 - Implementing ER diagram to avoid redundancy takes place because of the multiple entries of particular field of single employee
+
+12)  UC12 - Ensuring all the retrieving operations works with ER implementation          
