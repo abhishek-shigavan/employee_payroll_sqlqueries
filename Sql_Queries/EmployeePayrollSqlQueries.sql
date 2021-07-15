@@ -23,3 +23,8 @@ insert into employee_payroll (EmpName, Salary, StartDate) values		# inserting va
 
 # UC4
 select * from employee_payroll;					# displaying employee_payroll table
+
+# UC5
+select Salary from employee_payroll where EmpName = 'Bill';	# retrieving salary by employee name
+select * from employee_payroll where StartDate 			# retrieving all entries between specified date
+	between cast('2019-01-01' as date) and date(now());
