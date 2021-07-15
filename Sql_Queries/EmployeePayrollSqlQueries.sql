@@ -14,3 +14,9 @@ create table employee_payroll 					# creating employee_payroll table
 );
 show tables;							# show all tables of database
 describe employee_payroll;					# show structure of employee_payroll table
+
+# UC3
+insert into employee_payroll (EmpName, Salary, StartDate) values		# inserting values into employee_payroll table
+    ('Bill', '1000000.00', '2018-07-11'),
+    ('Terisa', '2000000.00', '2019-02-08'),
+    ('Charlie', '3000000.00', '2020-09-10');
