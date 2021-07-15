@@ -63,3 +63,13 @@ alter table employee_payroll add TaxablePay double not null after Deductions;			
 alter table employee_payroll add Tax double not null after TaxablePay;				# adding tax field
 alter table employee_payroll add NetPay double not null after Tax; 				# adding net pay field
 describe employee_payroll;
+
+# UC10
+update employee_payroll set Department = 'Sales' where EmpName = 'Terisa';			# setting department field 
+insert into employee_payroll 									# inserting data into table 
+	( EmpName, PhoneNo, Address, Department, Gender,
+          BasicPay, Deductions, TaxablePay, Tax, NetPay, StartDate )
+        values
+        ( 'Terisa', '9078563412', 'Mumbai', 'Marketing', 'F',
+	  '2000000.00', '500000.00', '1500000.00', '50000', '1450000', '2019-02-08');
+select * from employee_payroll; 
