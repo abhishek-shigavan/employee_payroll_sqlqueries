@@ -20,3 +20,6 @@ insert into employee_payroll (EmpName, Salary, StartDate) values		# inserting va
     ('Bill', '1000000.00', '2018-07-11'),
     ('Terisa', '2000000.00', '2019-02-08'),
     ('Charlie', '3000000.00', '2020-09-10');
+
+# UC4
+select * from employee_payroll;					# displaying employee_payroll table
