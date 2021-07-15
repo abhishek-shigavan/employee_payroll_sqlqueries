@@ -108,4 +108,59 @@ create table emp_department					# Creating emp_department table
     DepId int not null,						# Id of department
     DepName varchar(55) not null				# Name of Department
 );
-describe emp_department						# Displaying emp_department table structure
+describe emp_department;					# Displaying emp_department table structure
+
+# UC12
+insert into company							# Adding all data field values into company table 
+	(CompanyId, CompanyName) 
+	values
+	('1', 'BridgeLabz');
+select * from company;    
+insert into employee							# Adding all data field values into company table
+	(CompanyId, EmpId, EmpName, PhoneNo, Address, Gender, StartDate) 
+	values
+	('1', '101', 'Bill', '9876543210', 'Dadar, Mumbai', 'M', '2018-07-11'),
+	('1', '102', 'Terisa', '8978675645', 'Borivali, Mumbai', 'F', '2019-02-08'),
+	('1', '103', 'Charlie', '6789098978', 'Bandra, Mumbai', 'M', '2020-09-10');
+select * from employee;
+insert into emp_payroll							# Adding all data field values into company table
+	(EmpId, BasicPay, Deductions, TaxablePay, Tax, NetPay)
+	values
+	('101', '1000000.00', '200000.00', '800000.00', '20000.00', '1180000.00'),
+	('102', '2000000.00', '500000.00', '1500000.00', '50000.00', '1450000.00'),
+	('103', '3000000.00', '1000000.00', '2000000.00', '100000.00', '1900000.00');    
+select * from emp_payroll;
+insert into emp_department						# Adding all data field values into company table
+	(EmpId, DepId, DepName)
+    	values
+    	('101', '11', 'Technical'),
+    	('102', '12', 'Sales'),
+    	('102', '13', 'Marketing'),
+    	('103', '11', 'Technical'),
+    	('103', '13', 'Marketing');
+select * from emp_department;
+
+# Retrieving all the data of employee
+select company.CompanyName, employee.*, 
+   emp_payroll.BasicPay, emp_payroll.Deductions, emp_payroll.TaxablePay, emp_payroll.Tax, emp_payroll.NetPay, emp_department.DepName
+from employee
+inner join company on employee.CompanyId = company.CompanyId
+inner join emp_payroll on employee.EmpId = emp_payroll.EmpId 
+inner join emp_department on employee.EmpId = emp_department.EmpId
+order by employee.EmpID; 
+
+# Retrieving payroll data of particular employee
+select company.CompanyName, employee.EmpId, employee.EmpName, 
+	emp_payroll.BasicPay, emp_payroll.Deductions, emp_payroll.TaxablePay, emp_payroll.Tax, emp_payroll.NetPay
+from employee
+inner join company on employee.CompanyId = company.CompanyId
+inner join emp_payroll on employee.EmpId = emp_payroll.EmpId 
+where employee.EmpName = 'Bill';
+
+# Retrieving payroll data of employees who joined between specified dates 
+select company.CompanyName, employee.EmpId, employee.EmpName, 
+	emp_payroll.BasicPay, emp_payroll.Deductions, emp_payroll.TaxablePay, emp_payroll.Tax, emp_payroll.NetPay
+from employee
+inner join company on employee.CompanyId = company.CompanyId
+inner join emp_payroll on employee.EmpId = emp_payroll.EmpId 
+where employee.StartDate between cast('2019-01-01' as date) and date(now());
