@@ -73,3 +73,39 @@ insert into employee_payroll 									# inserting data into table
         ( 'Terisa', '9078563412', 'Mumbai', 'Marketing', 'F',
 	  '2000000.00', '500000.00', '1500000.00', '50000', '1450000', '2019-02-08');
 select * from employee_payroll; 
+
+# UC11
+create table company 						# Creating company table
+(
+    CompanyId int not null,					# Id of company
+    CompanyName varchar(75)					# Name of company
+);
+describe company;						# Displaying company table structure
+create table employee						# Creating employee table
+(
+    CompanyId int not null,					# Id of company
+    EmpId int not null,						# ID of employee
+    EmpName varchar(55) not null,				# Name of employee 
+    PhoneNo varchar(50) not null,				# Phone number of employee
+    Address varchar(150) not null,				# Address of employee
+    Gender varchar(6) not null,					# Gender of employee
+    StartDate date not null					# Joining date of employee
+);
+describe employee;						# Displaying employee table structure
+create table emp_payroll					# Creating emp_payroll table
+(
+    EmpId int not null,						# Id of employee
+    BasicPay double not null,					# Basic pay of employee
+    Deductions double not null,					# Deductons from employee pay
+    TaxablePay double not null,					# Taxable pay of employee
+    Tax double not null,					# Tax on employee pay
+    NetPay double not null					# Net pay of employee
+);
+describe emp_payroll;						# Displaying emp_payroll table structure
+create table emp_department					# Creating emp_department table
+(
+    EmpId int not null,						# Id of employee
+    DepId int not null,						# Id of department
+    DepName varchar(55) not null				# Name of Department
+);
+describe emp_department						# Displaying emp_department table structure
