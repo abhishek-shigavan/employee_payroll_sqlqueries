@@ -36,3 +36,16 @@ update employee_payroll set Gender = 'M' where EmpName = 'Bill';			      # updat
 update employee_payroll set Gender = 'F' where EmpName = 'Terisa';
 update employee_payroll set Gender = 'M' where EmpName = 'Charlie';
 select * from employee_payroll; 							# displaying updated employee_payroll table
+
+# UC7
+#performing sum, avg, min, max opeartion on salary of employee according to gender
+select sum(Salary) from employee_payroll where Gender = 'M' group by Gender;
+select sum(Salary) from employee_payroll where Gender = 'F' group by Gender;
+select avg(Salary) from employee_payroll where Gender = 'M' group by Gender;
+select avg(Salary) from employee_payroll where Gender = 'F' group by Gender;
+select min(Salary) from employee_payroll where Gender = 'M';
+select min(Salary) from employee_payroll where Gender = 'F';
+select max(Salary) from employee_payroll where Gender = 'M';
+select max(Salary) from employee_payroll where Gender = 'F';
+select count(Salary) from employee_payroll where Gender = 'M';
+select count(Salary) from employee_payroll where Gender = 'F';
