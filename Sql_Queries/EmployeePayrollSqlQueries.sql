@@ -49,3 +49,9 @@ select max(Salary) from employee_payroll where Gender = 'M';
 select max(Salary) from employee_payroll where Gender = 'F';
 select count(Salary) from employee_payroll where Gender = 'M';
 select count(Salary) from employee_payroll where Gender = 'F';
+
+# UC8
+alter table employee_payroll add PhoneNo varchar(150) after EmpName;	                        # adding phone number field
+alter table employee_payroll add Address varchar(255) default 'N/A' after PhoneNo;		# adding address field
+alter table employee_payroll add Department varchar(255) not null after Address;		# adding department field
+describe employee_payroll;
