@@ -28,3 +28,11 @@ select * from employee_payroll;					# displaying employee_payroll table
 select Salary from employee_payroll where EmpName = 'Bill';	# retrieving salary by employee name
 select * from employee_payroll where StartDate 			# retrieving all entries between specified date
 	between cast('2019-01-01' as date) and date(now());
+
+# UC6
+alter table employee_payroll add Gender char(6) not null default 'N/A' after EmpName;	      # adding new column in table
+describe employee_payroll;					                      # displaying employee_payroll table structure
+update employee_payroll set Gender = 'M' where EmpName = 'Bill';			      # updating values of new column
+update employee_payroll set Gender = 'F' where EmpName = 'Terisa';
+update employee_payroll set Gender = 'M' where EmpName = 'Charlie';
+select * from employee_payroll; 							# displaying updated employee_payroll table
